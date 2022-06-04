@@ -1,0 +1,9 @@
+.input-container>[data-state="visible"]~.input-container_icon>.password-visible,
+.input-container>[data-state="invisible"]~.input-container_icon>.password-invisible {
+    display: initial;
+}
+
+.password-invisible,
+.password-visible {
+    display: none;
+}

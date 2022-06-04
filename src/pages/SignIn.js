@@ -1,12 +1,21 @@
-import { useState, createContext, useContext } from "react";
-import { useNavigate } from "react-router"
-import { IonToast } from '@ionic/react';
-import { MdOutlineArrowBack } from "react-icons/md";
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { IonToast } from "@ionic/react";
+import {
+  MdOutlineArrowBack,
+  MdAccountCircle,
+  MdLock,
+  MdOutlineVisibility,
+  MdOutlineVisibilityOff,
+} from "react-icons/md";
 import "@ionic/react/css/core.css";
 import { Filesystem } from "@capacitor/filesystem";
 import { errorHandled } from "../utils/utils";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { Input } from "../components/Input";
+import "./SignIn.css";
+
 export const SignInPage = () => {
   const navigate = useNavigate();
   const {
@@ -17,7 +26,10 @@ export const SignInPage = () => {
   } = useForm();
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
+  const [pwdBox, setPwdBox] = useState({
+    type: "password",
+    "data-state": "invisible",
+  });
   function submitDevData(data) {
     const { username, password } = data;
     errorHandled(
@@ -60,7 +72,11 @@ export const SignInPage = () => {
         setError(true);
       });
   }
-
+  function handleIcon() {
+    if (pwdBox.type === "password")
+      setPwdBox({ type: "text", "data-state": "visible" });
+    else setPwdBox({ type: "password", "data-state": "invisible" });
+  }
   return (
     <div className="h-[896px] w-[414px] p-4">
       <nav className="w-full">
@@ -77,16 +93,26 @@ export const SignInPage = () => {
           onSubmit={handleSubmit(submitData)}
           className="flex flex-col gap-6 items-center pt-12 pb-6  w-full px-2 "
         >
-          <input
+          <Input
+            leftIcon={<MdAccountCircle size={24} />}
             className="form-control"
             {...register("username", { required: true })}
             placeholder="Enter your username"
           />
-          <input
+          <Input
+            leftIcon={<MdLock size={24} />}
             className="form-control"
-            type="password"
+            {...pwdBox}
             {...register("password", { required: true })}
             placeholder="Your password goes here"
+            rightIcon={[
+              <MdOutlineVisibility size={24} className="password-visible" />,
+              <MdOutlineVisibilityOff
+                size={24}
+                className="password-invisible"
+              />,
+            ]}
+            onRightIconClick={handleIcon}
           />
           <Link className="text-violet-400 self-end" to="/signup">
             Forgot password?

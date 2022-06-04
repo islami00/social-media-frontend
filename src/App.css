@@ -8,9 +8,17 @@
 }
 
 .form-control {
-  @apply p-6 h-8 rounded-full w-full focus-visible:outline-none border-slate-50 border-8 shadow-lg  bg-neutral-100;
+  @apply p-2 rounded-full w-full focus-visible:outline-none border-slate-50 border-8 shadow-lg  bg-neutral-100;
 }
-
+.input-container{
+  @apply flex;
+}
+.input-container_icon{
+  @apply w-6 inline-flex items-center justify-center;
+}
+.input-container_input{
+  @apply outline-none bg-transparent w-full grow px-3 xs:px-10;
+}
 .post-list {
   @apply list-none h-max;
 }
