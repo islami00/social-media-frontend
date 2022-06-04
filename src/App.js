@@ -11,14 +11,18 @@ import { Chats } from './pages/Chat';
 
 function App() {
   return (
-  <Routes>
-    <Route path="/chat/users" element={<Chats/>}/>
-    <Route path="/user/:id" element={<UserPage />}/>
-    <Route path="/main/*" element={<Tabs/>} />
-    <Route path="/signup" element={<SignUpPage/>} />
-    <Route path="/" element={<SignInPage/>} />
-  </Routes>
-);
+    <>
+      <main className="flex-auto flex">
+        <Routes>
+          <Route path="/chat/users" element={<Chats />} />
+          <Route path="/user/:id" element={<UserPage />} />
+          <Route path="/main/*" element={<Tabs />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/" element={<SignInPage />} />
+        </Routes>
+      </main>
+    </>
+  );
 }
 
 export default App;

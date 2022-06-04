@@ -28,8 +28,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start-server": "npm run json-server -- -p 4000 ./scripts/generate.js",
-    "json-server": "PATH=$PATH:$(npm bin) json-server"
+    "start-server": "json-server -p 4000 ./scripts/generate.js"
   },
   "eslintConfig": {
     "extends": [
