@@ -20,6 +20,18 @@ module.exports = {
           800: "#402155",
           900: "#2b0842",
         },
+        purple: {
+          50: "#f6eefb",
+          100: "#ecdcf7",
+          200: "#d9baee",
+          300: "#c797e6",
+          400: "#b475dd",
+          500: "#a152d5",
+          600: "#9333ea",
+          700: "#7e22ce",
+          800: "#6b21a8",
+          900: "#581c87",
+        },
       },
       fontFamily: {
         sans: ['"Open Sans"', ...defaultTheme.fontFamily.sans],

@@ -4,7 +4,7 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
 .btn-primary {
-  @apply bg-sky-600 border-0 rounded-md;
+  @apply bg-purple-500 border-0;
 }
 
 .form-control {
@@ -17,7 +17,7 @@
   @apply w-6 inline-flex items-center justify-center;
 }
 .input-container_input{
-  @apply outline-none bg-transparent w-full grow px-3 xs:px-10;
+  @apply outline-none bg-transparent w-full px-3 xs:px-10;
 }
 .post-list {
   @apply list-none h-max;

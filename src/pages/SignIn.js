@@ -7,6 +7,7 @@ import {
   MdLock,
   MdOutlineVisibility,
   MdOutlineVisibilityOff,
+  MdOutlineArrowForward,
 } from "react-icons/md";
 import "@ionic/react/css/core.css";
 import { Filesystem } from "@capacitor/filesystem";
@@ -106,8 +107,13 @@ export const SignInPage = () => {
             {...register("password", { required: true })}
             placeholder="Your password goes here"
             rightIcon={[
-              <MdOutlineVisibility size={24} className="password-visible" />,
+              <MdOutlineVisibility
+                key={crypto?.randomUUID()}
+                size={24}
+                className="password-visible"
+              />,
               <MdOutlineVisibilityOff
+                key={crypto?.randomUUID()}
                 size={24}
                 className="password-invisible"
               />,
@@ -119,14 +125,21 @@ export const SignInPage = () => {
           </Link>
         </form>
       </section>
-      <section class="flex flex-col gap-2 w-full">
-        <button type="submit" className="btn-primary w-full h-10 self-center">
-          Login
-          {/* <MdOutlineArrowBack size={24} /> */}
-        </button>
+      <section className="flex flex-col gap-6 w-full pt-12 items-center">
+        <label className="self-end font-bold inline-flex items-center gap-2">
+          Log in
+          <button
+            type="submit"
+            className="rounded-full px-3 py-1 self-center btn-primary"
+          >
+            <MdOutlineArrowForward color="white" size={24} />
+          </button>
+        </label>
         <p>
-          Dont have an account?
-          <Link to="/signup">Sign up</Link>
+          Don't have an account?{" "}
+          <Link to="/signup" className="font-bold underline">
+            Create
+          </Link>
         </p>
       </section>
       <IonToast
