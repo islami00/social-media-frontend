@@ -8,7 +8,7 @@
     display: none;
 }
 .sign-in {
-    background-image: url(/public/green-blob.png);
+    background-image: url(/public/green-blob.png), url(/public/purple-blob.svg);
     @apply bg-no-repeat;
-    background-position: right -2rem top -2rem;
+        background-position: right -2rem top -2rem, left 80%;
 }
