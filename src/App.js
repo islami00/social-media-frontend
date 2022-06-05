@@ -3,7 +3,7 @@ import '@ionic/react/css/core.css';
 import { Routes, Route } from 'react-router-dom'
 import { ProfilePage } from './pages/Profile'
 import { HomePage } from './pages/Home';
-import { SignInPage } from './pages/SignIn';
+import { SignInWithPrelude as SignInPage } from "./components/SignInWithPrelude";
 import { SignUpPage } from './pages/SignUp';
 import { Tabs } from './components/Tabs';
 import { UserPage } from "./pages/UserPage"

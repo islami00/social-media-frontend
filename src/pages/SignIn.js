@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { Input } from "../components/Input";
 import "./SignIn.css";
 
-export const SignInPage = () => {
+export const SignInNoPrelude = () => {
   const navigate = useNavigate();
   const {
     register,
@@ -96,7 +96,7 @@ export const SignInPage = () => {
             <h1 className="text-6xl font-bold">Hello</h1>
             <p>Sign in to your account</p>
           </div>
-          <div className="flex flex-col gap-6 items-center pt-12 pb-6  w-full px-2 ">
+          <div className="flex flex-col gap-6 items-center pt-12 pb-6  w-full px-4">
             <Input
               leftIcon={<MdAccountCircle size={24} />}
               className="form-control"
@@ -128,7 +128,7 @@ export const SignInPage = () => {
             </Link>
           </div>
         </section>
-        <section className="flex flex-col gap-6 w-full pt-12 items-center px-2">
+        <section className="flex flex-col gap-6 w-full pt-12 items-center px-4">
           <label className="self-end font-bold inline-flex items-center gap-2">
             Sign in
             <button

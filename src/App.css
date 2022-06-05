@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+
 .btn-primary {
   @apply bg-purple-500 border-0;
 }
@@ -52,4 +53,10 @@
 #root {
   @apply w-screen min-h-screen flex flex-col;
   @apply text-violet-900 font-sans;
+}
+.prelude-image {
+  background-image: linear-gradient(hsla(0, 0%, 0%, 0),
+      hsla(0, 0%, 0%, 0) 65%,
+      hsla(295, 38%, 5%, 1)), url(/public/prelude-img.png);
+  @apply bg-no-repeat bg-cover;
 }
