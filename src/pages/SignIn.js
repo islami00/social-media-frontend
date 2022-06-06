@@ -16,7 +16,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { Input } from "../components/Input";
 import "./SignIn.css";
-
+import { AuthSwitcher } from "../components/AuthSwitcher";
 export const SignInNoPrelude = () => {
   const navigate = useNavigate();
   const {
@@ -138,12 +138,7 @@ export const SignInNoPrelude = () => {
               <MdOutlineArrowForward color="white" size={24} />
             </button>
           </label>
-          <p>
-            Don't have an account?{" "}
-            <Link to="/signup" className="font-bold underline">
-              Create
-            </Link>
-          </p>
+          <AuthSwitcher />
         </section>
       </form>
       <IonToast
