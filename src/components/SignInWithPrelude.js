@@ -9,11 +9,13 @@ import { Link } from "react-router-dom";
 function AuthPrelude(props) {
   const { setPreludeState } = props;
   return (
-    <div className="flex grow flex-col px-9 py-4 items-center prelude-image">
-      <h1 className="pt-16 text-5xl">Pokalblis logo</h1>
+    <div className="flex grow flex-col px-9 py-4 items-center prelude-image text-purple-800">
+      <h1 className="pt-16 text-6xl font-bold">
+        Pokalbis<span className="text-4xl">ߋ</span>
+      </h1>
       <section className="justify-end mt-auto pb-8 w-full flex flex-col gap-y-2.5">
         <button
-          className="outline-none rounded-[1.4rem] bg-white py-3 w-full text-lg text-purple-800 font-bold"
+          className="outline-none rounded-[1.4rem] bg-white py-3 w-full text-lg font-bold"
           onClick={() => setPreludeState("signin")}
         >
           Login
