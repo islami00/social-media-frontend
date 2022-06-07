@@ -1,3 +1,4 @@
+/* Signin and signup */
 .input-container>[data-state="visible"]~.input-container_icon>.password-visible,
 .input-container>[data-state="invisible"]~.input-container_icon>.password-invisible {
     display: initial;
@@ -7,8 +8,14 @@
 .password-visible {
     display: none;
 }
+/* Signin */
 .sign-in {
     background-image: url(/public/green-blob.png), url(/public/purple-blob.svg);
     @apply bg-no-repeat;
         background-position: right -2rem top -2rem, left 80%;
+}
+.sign-up {
+    background-image: url(/public/green-blob.png), url(/public/purple-blob.svg);
+    @apply bg-no-repeat;
+    background-position: right -2rem top -2rem, left 60%;
 }

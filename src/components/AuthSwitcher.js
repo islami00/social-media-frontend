@@ -18,19 +18,13 @@ export function AuthSwitcher() {
     case "/signup":
       return (
         <>
-          <p>
-            Already have an account?{" "}
-            <Link to="/" className="font-bold underline">
-              Sign in
-            </Link>
-          </p>
-          <p>or create an account using other social media</p>
-          <div className="flex flex-row justify-center">
+          <p>or create account using social media</p>
+          <div className="flex flex-row justify-center gap-2">
             <Link to="/signup/withGoogle" aria-label="Sign up with google">
-              <FcGoogle size={24} />
+              <FcGoogle size={36} />
             </Link>
             <Link to="/signup/withFacebook" aria-label="Sign up with facebook">
-              <MdFacebook size={24} />
+              <MdFacebook size={36} />
             </Link>
           </div>
         </>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import { IonToast } from "@ionic/react";
-import { MdOutlineArrowBack, MdOutlineArrowForward } from "react-icons/md";
+import { MdOutlineArrowForward } from "react-icons/md";
 import { AuthSwitcher } from "../../../components/AuthSwitcher";
 
 /**
@@ -12,7 +12,7 @@ import { AuthSwitcher } from "../../../components/AuthSwitcher";
  * @typedef {[ReactRouterNavigateFunction,SetErrorMessage,SetError]} SubmitDataArgs
  *
  * @typedef {Object} SignInSignUpLayoutProps
- * @property {boolean} bg -  Render a background 
+ * @property {string} bgClass -  Render a background using a class 
  * @property {React.ReactNode} navContent - The content of the upper navigation
  * @property {React.ReactNode} heading - What to render at the heading
  * @property {React.ReactNode} inputs - Input nodes to render in form body, in flexbox below the heading.
@@ -28,7 +28,7 @@ import { AuthSwitcher } from "../../../components/AuthSwitcher";
  */
 export function SignInSignUpLayout(props) {
   const {
-    bg,
+    bgClass="",
     navContent,
     heading,
     inputs,
@@ -46,10 +46,9 @@ export function SignInSignUpLayout(props) {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const submitDataArgs = [navigate, setErrorMessage, setError];
-  const signIn = bg ? "sign-in" : "";
   return (
     <div
-      className={`h-screen w-screen lg:w-[414px] p-4 flex flex-col ${justify} ${signIn}`}
+      className={`h-screen w-screen lg:w-[414px] p-4 flex flex-col ${justify} ${bgClass}`}
     >
       <nav className="w-full flex justify-between">{navContent}</nav>
       <form onSubmit={handleSubmit(submitFormData(...submitDataArgs))}>
@@ -60,7 +59,7 @@ export function SignInSignUpLayout(props) {
           </div>
         </section>
         <section className="flex flex-col gap-6 w-full pt-12 items-center px-4">
-          <label className="self-end font-bold inline-flex items-center gap-2">
+          <label className="text-xl self-end font-bold inline-flex items-center gap-2">
             {submitText}
             <button
               type="submit"
@@ -69,7 +68,10 @@ export function SignInSignUpLayout(props) {
               <MdOutlineArrowForward color="white" size={24} />
             </button>
           </label>
-          <AuthSwitcher />
+
+          <div className="text-center">
+            <AuthSwitcher />
+          </div>
         </section>
       </form>
       <IonToast

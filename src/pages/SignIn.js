@@ -14,6 +14,7 @@ import { Input } from "../components/Input";
 import "./SignIn.css";
 import { SignInSignUpLayout } from "../modules/Auth/Layouts/SignInSignUpLayout";
 import { submitSignInData } from "../modules/Auth/utils";
+
 export function SignInNoPrelude() {
   const formRets = useForm();
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ export function SignInNoPrelude() {
     <SignInSignUpLayout
       formRets={formRets}
       submitFormData={submitSignInData}
-      bg
+      bgClass="sign-in"
       justify="justify-between"
       navContent={
         <>

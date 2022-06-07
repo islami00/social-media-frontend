@@ -2,11 +2,12 @@ import { useState, useLayoutEffect } from "react";
 import { isMobile } from "../utils/utils";
 import { SignInNoPrelude } from "../pages/SignIn";
 import { Link } from "react-router-dom";
+let preludeInit = "prelude";
 /**
  * A prelude that either passes the user on to signin or redirects the user to
  * a dedicated signup form
  * */
-function AuthPrelude(props) {
+function SignInPrelude(props) {
   const { setPreludeState } = props;
   return (
     <div className="flex grow flex-col px-9 py-4 items-center prelude-image text-purple-800">
@@ -16,7 +17,10 @@ function AuthPrelude(props) {
       <section className="justify-end mt-auto pb-8 w-full flex flex-col gap-y-2.5">
         <button
           className="outline-none rounded-[1.4rem] bg-white py-3 w-full text-lg font-bold"
-          onClick={() => setPreludeState("signin")}
+          onClick={() => {
+            setPreludeState("signin");
+            preludeInit = "signin";
+          }}
         >
           Login
         </button>
@@ -35,14 +39,14 @@ export function SignInWithPrelude() {
   const [preludeState, setPreludeState] = useState("");
   useLayoutEffect(() => {
     if (isMobile()) {
-      setPreludeState("prelude");
+      setPreludeState(preludeInit);
     } else {
       setPreludeState("signin");
     }
   }, []);
   switch (preludeState) {
     case "prelude":
-      return <AuthPrelude setPreludeState={setPreludeState} />;
+      return <SignInPrelude setPreludeState={setPreludeState} />;
     case "signin":
       return <SignInNoPrelude />;
     default:
