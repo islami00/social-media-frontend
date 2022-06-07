@@ -4,17 +4,19 @@ import {
   MdLock,
   MdOutlineVisibility,
   MdOutlineVisibilityOff,
+  MdOutlineArrowBack,
 } from "react-icons/md";
 import "@ionic/react/css/core.css";
 import { Filesystem } from "@capacitor/filesystem";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Input } from "../components/Input";
 import "./SignIn.css";
 import { SignInSignUpLayout } from "../modules/Auth/Layouts/SignInSignUpLayout";
 import { submitSignInData } from "../modules/Auth/utils";
 export function SignInNoPrelude() {
   const formRets = useForm();
+  const navigate = useNavigate();
   const [pwdBox, setPwdBox] = useState({
     type: "password",
     "data-state": "invisible",
@@ -28,7 +30,20 @@ export function SignInNoPrelude() {
     <SignInSignUpLayout
       formRets={formRets}
       submitFormData={submitSignInData}
+      bg
       justify="justify-between"
+      navContent={
+        <>
+          <button
+            aria-label="Back"
+            onClick={() => {
+              navigate(-1);
+            }}
+          >
+            <MdOutlineArrowBack size={24} />
+          </button>
+        </>
+      }
       heading={
         <>
           <h1 className="text-6xl font-bold">Hello</h1>

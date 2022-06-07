@@ -12,6 +12,8 @@ import { AuthSwitcher } from "../../../components/AuthSwitcher";
  * @typedef {[ReactRouterNavigateFunction,SetErrorMessage,SetError]} SubmitDataArgs
  *
  * @typedef {Object} SignInSignUpLayoutProps
+ * @property {boolean} bg -  Render a background 
+ * @property {React.ReactNode} navContent - The content of the upper navigation
  * @property {React.ReactNode} heading - What to render at the heading
  * @property {React.ReactNode} inputs - Input nodes to render in form body, in flexbox below the heading.
  * @property {string} submitText - What the submit button should say
@@ -25,8 +27,16 @@ import { AuthSwitcher } from "../../../components/AuthSwitcher";
  * @param {SignInSignUpLayoutProps} props {@link SignInSignUpLayoutProps}
  */
 export function SignInSignUpLayout(props) {
-  const { heading, inputs, submitText, formRets, submitFormData, justify } =
-    props;
+  const {
+    bg,
+    navContent,
+    heading,
+    inputs,
+    submitText,
+    formRets,
+    submitFormData,
+    justify,
+  } = props;
   const navigate = useNavigate();
   const {
     handleSubmit,
@@ -36,21 +46,12 @@ export function SignInSignUpLayout(props) {
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const submitDataArgs = [navigate, setErrorMessage, setError];
-
+  const signIn = bg ? "sign-in" : "";
   return (
     <div
-      className={`h-screen w-screen lg:w-[414px] p-4 flex flex-col ${justify} sign-in`}
+      className={`h-screen w-screen lg:w-[414px] p-4 flex flex-col ${justify} ${signIn}`}
     >
-      <nav className="w-full flex">
-        <button
-          aria-label="Back"
-          onClick={() => {
-            navigate(-1);
-          }}
-        >
-          <MdOutlineArrowBack size={24} />
-        </button>
-      </nav>
+      <nav className="w-full flex justify-between">{navContent}</nav>
       <form onSubmit={handleSubmit(submitFormData(...submitDataArgs))}>
         <section className="w-full">
           <div className="text-center">{heading}</div>
